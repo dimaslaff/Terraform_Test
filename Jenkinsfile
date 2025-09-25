@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: '[https://github.com/your-org/your-repo.git](https://github.com/your-org/your-repo.git)'
+                git branch: 'main', url: '[https://github.com/dimaslaff/Terraform_Test.git](https://github.com/dimaslaff/Terraform_Test.git)'
             }
         }
         
@@ -58,11 +58,11 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline succeeded. Sending email notification."
+            echo "Pipeline Berhasil. kirim notif"
             mail(to: env.RECIPIENTS, subject: "SUCCESS: Terraform Build for ${params.ENVIRONMENT}", body: "The Terraform changes were successfully applied.")
         }
         failure {
-            echo "Pipeline failed. Sending email notification."
+            echo "Pipeline Gagal. Kirim notif"
             mail(to: env.RECIPIENTS, subject: "FAILURE: Terraform Build for ${params.ENVIRONMENT}", body: "The Terraform pipeline failed. Check the build logs for details.")
         }
     }
